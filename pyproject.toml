@@ -1,0 +1,30 @@
+[project]
+name = "clip-downloader"
+version = "0.1.0"
+description = "Standalone Windows clip downloader"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "yt-dlp[default]",
+    "imageio-ffmpeg",
+    "deno",
+    "pywebview>=6.2.1",
+    "pillow>=12.3.0",
+    "faster-whisper>=1.2.1",
+    "nvidia-cublas-cu12>=12.8,<13 ; sys_platform == 'win32'",
+    "nvidia-cudnn-cu12>=9.7,<10 ; sys_platform == 'win32'",
+    "nvidia-cuda-runtime-cu12>=12.8,<13 ; sys_platform == 'win32'",
+]
+
+[project.scripts]
+clip-downloader = "clip_downloader.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["ruff", "pyinstaller; sys_platform == 'win32'"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100

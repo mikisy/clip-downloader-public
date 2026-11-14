@@ -1,0 +1,1 @@
+"""Clip Downloader application package."""
